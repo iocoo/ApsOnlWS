@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ApsOnlWS"
+ targetNamespace="http://192.168.101.181:11080/ApsOnlWS.wsdl"
+ xmlns:tns="http://192.168.101.181:11080/ApsOnlWS.wsdl"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:OnlWS="urn:ApsOnlWS"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="urn:ApsOnlWS"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:OnlWS="urn:ApsOnlWS"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="TZeroNodeInfo"><!-- OnlWS__TZeroNodeInfo -->
+
+   <sequence>
+     <element name="BatNo" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatNo -->
+     <element name="BatNode" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatNode -->
+     <element name="BatTime" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatTime -->
+   </sequence>
+  </complexType>
+  <complexType name="TZeroNodeInfoResp"><!-- OnlWS__TZeroNodeInfoResp -->
+
+   <sequence>
+    <element name="item" type="OnlWS:TZeroNodeInfo" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <!-- operation request element -->
+  <element name="GetStlmDate">
+   <complexType>
+    <sequence>
+     <element name="option" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetStlmDate::option -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="StlmdateResp">
+   <complexType>
+    <sequence>
+     <element name="InsIdCd" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::InsIdCd -->
+     <element name="SysState" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::SysState -->
+     <element name="BfStlmDate" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::BfStlmDate -->
+     <element name="CurStlmDate" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::CurStlmDate -->
+     <element name="DateCutTime" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- OnlWS__StlmdateResp::DateCutTime -->
+     <element name="BfTxnTbl" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::BfTxnTbl -->
+     <element name="CurTxnTbl" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::CurTxnTbl -->
+     <element name="UseTlInsFlg" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::UseTlInsFlg -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="GetTZeroNodeInfo">
+   <complexType>
+    <sequence>
+     <element name="option" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetTZeroNodeInfo::option -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="GetTZeroNodeInfoResponse">
+   <complexType>
+    <sequence>
+     <element name="resp" type="OnlWS:TZeroNodeInfoResp" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetTZeroNodeInfo::resp -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+</types>
+
+<message name="GetStlmDate">
+ <part name="Body" element="OnlWS:GetStlmDate"/><!-- OnlWS__GetStlmDate::OnlWS__GetStlmDate -->
+</message>
+
+<message name="StlmdateResp">
+ <part name="Body" element="OnlWS:StlmdateResp"/><!-- OnlWS__GetStlmDate::resp -->
+</message>
+
+<message name="GetTZeroNodeInfoRequest">
+ <part name="Body" element="OnlWS:GetTZeroNodeInfo"/><!-- OnlWS__GetTZeroNodeInfo::OnlWS__GetTZeroNodeInfo -->
+</message>
+
+<message name="GetTZeroNodeInfoResponse">
+ <part name="Body" element="OnlWS:GetTZeroNodeInfoResponse"/>
+</message>
+
+<portType name="ApsOnlWSPortType">
+ <operation name="GetStlmDate">
+  <documentation>Service definition of function OnlWS__GetStlmDate</documentation>
+  <input message="tns:GetStlmDate"/>
+  <output message="tns:StlmdateResp"/>
+ </operation>
+ <operation name="GetTZeroNodeInfo">
+  <documentation>Service definition of function OnlWS__GetTZeroNodeInfo</documentation>
+  <input message="tns:GetTZeroNodeInfoRequest"/>
+  <output message="tns:GetTZeroNodeInfoResponse"/>
+ </operation>
+</portType>
+
+<binding name="ApsOnlWS" type="tns:ApsOnlWSPortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="GetStlmDate">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="GetTZeroNodeInfo">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="ApsOnlWS">
+ <documentation>gSOAP 2.8.17r generated service definition</documentation>
+ <port name="ApsOnlWS" binding="tns:ApsOnlWS">
+  <SOAP:address location="http://192.168.101.181:11080"/>
+ </port>
+</service>
+
+</definitions>

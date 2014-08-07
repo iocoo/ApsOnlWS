@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="urn:ApsOnlWS"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:OnlWS="urn:ApsOnlWS"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="TZeroNodeInfo"><!-- OnlWS__TZeroNodeInfo -->
+
+   <sequence>
+     <element name="BatNo" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatNo -->
+     <element name="BatNode" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatNode -->
+     <element name="BatTime" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__TZeroNodeInfo::BatTime -->
+   </sequence>
+  </complexType>
+  <complexType name="TZeroNodeInfoResp"><!-- OnlWS__TZeroNodeInfoResp -->
+
+   <sequence>
+    <element name="item" type="OnlWS:TZeroNodeInfo" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <!-- operation request element -->
+  <element name="GetStlmDate">
+   <complexType>
+    <sequence>
+     <element name="option" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetStlmDate::option -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="StlmdateResp">
+   <complexType>
+    <sequence>
+     <element name="InsIdCd" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::InsIdCd -->
+     <element name="SysState" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::SysState -->
+     <element name="BfStlmDate" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::BfStlmDate -->
+     <element name="CurStlmDate" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::CurStlmDate -->
+     <element name="DateCutTime" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- OnlWS__StlmdateResp::DateCutTime -->
+     <element name="BfTxnTbl" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::BfTxnTbl -->
+     <element name="CurTxnTbl" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::CurTxnTbl -->
+     <element name="UseTlInsFlg" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__StlmdateResp::UseTlInsFlg -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="GetTZeroNodeInfo">
+   <complexType>
+    <sequence>
+     <element name="option" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetTZeroNodeInfo::option -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="GetTZeroNodeInfoResponse">
+   <complexType>
+    <sequence>
+     <element name="resp" type="OnlWS:TZeroNodeInfoResp" minOccurs="0" maxOccurs="1" nillable="true"/><!-- OnlWS__GetTZeroNodeInfo::resp -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
