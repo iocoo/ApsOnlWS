@@ -1,9 +1,4 @@
-#| Copyright (c) 2000-2003 Shanghai Huateng Software Systems Co., Ltd.        |
-#|    All Rights Reserved                                                     |
-#|----------------------------------------------------------------------------|
-#| FILE NAME    : sample.exec.mak                                             |
-#| DESCRIPTIONS : Sample makefile for executable binary                       |
-#|----------------------------------------------------------------------------|
+
 
 include $(FEHOME)/mak/platform.mak
 include $(FEHOME)/mak/database.mak
